@@ -72,6 +72,16 @@
                   <Insets top="15.0" />
                </VBox.margin>
             </HBox>
+            <Label style="-fx-text-fill: #FF0000;" text="Start + A: GamePad1">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label style="-fx-text-fill: #FF0000;" text="Start + B: GamePad2">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
             <HBox prefWidth="200.0">
                <children>
                   <CheckBox fx:id="cbxShowPath" mnemonicParsing="false" onAction="#handleCbxShowPathAction" text="Show path">
