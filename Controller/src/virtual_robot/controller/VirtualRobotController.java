@@ -824,6 +824,11 @@ public class VirtualRobotController {
 
         private final double X_MIN, X_MAX, Y_MIN, Y_MAX;    //Need these to constrain field
 
+        private double x;
+        private double y;
+        public synchronized double x(){ return x; }
+        public synchronized double y(){ return y; }
+
         public DistanceSensorImpl(){
             X_MIN = 2.0 * (Config.X_MIN_FRACTION - 0.5) * halfFieldWidth;
             X_MAX = 2.0 * (Config.X_MAX_FRACTION - 0.5) * halfFieldWidth;
@@ -840,6 +845,7 @@ public class VirtualRobotController {
         }
 
         public synchronized void updateDistance(double x, double y, double headingRadians){
+            this.x = x; this.y = y;
             final double mmPerPixel = 144.0 * 25.4 / fieldWidth;
             final double piOver2 = Math.PI / 2.0;
             double temp = headingRadians / piOver2;
