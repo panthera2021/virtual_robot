@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import org.firstinspires.ftc.robotcore.external.navigation.*;
 
-import virtual_robot.controller.VirtualRobotController;
+import virtual_robot.controller.VirtualRobotController.DistanceSensorImpl;
 
 /**
  * Example OpMode. Demonstrates use of gyro, color sensor, encoders, and telemetry.
@@ -99,8 +99,7 @@ public class ArmBotDemo extends LinearOpMode {
             telemetry.addData("Back Distance", " %.1f", backDistance.getDistance(DistanceUnit.CM));
             telemetry.addData("Encoders"," %d %d %d %d", m1.getCurrentPosition(), m2.getCurrentPosition(),
                     m3.getCurrentPosition(), m4.getCurrentPosition());
-            VirtualRobotController.DistanceSensorImpl castFrontDistance=(VirtualRobotController.DistanceSensorImpl) frontDistance;
-            telemetry.addData("Position", " %.1f, %.1f", castFrontDistance.x(), castFrontDistance.y());
+            telemetry.addData("Position", " %.1f, %.1f", ((DistanceSensorImpl) frontDistance).x(), ((DistanceSensorImpl) frontDistance).y());
             telemetry.update();
         }
         m1.setPower(0);

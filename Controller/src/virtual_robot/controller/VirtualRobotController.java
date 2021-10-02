@@ -824,8 +824,7 @@ public class VirtualRobotController {
 
         private final double X_MIN, X_MAX, Y_MIN, Y_MAX;    //Need these to constrain field
 
-        private double x;
-        private double y;
+        private double x; private double y;
         public synchronized double x(){ return x; }
         public synchronized double y(){ return y; }
 
